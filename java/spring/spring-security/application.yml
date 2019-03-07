@@ -1,0 +1,11 @@
+# =======================================
+# Configuration for bootable application
+# =======================================
+
+
+# SERVER
+server.port: 9999
+
+
+# CORS
+cors.security.origins: http://localhost:9999,http://localhost:4200

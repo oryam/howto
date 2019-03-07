@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+    <Properties>
+        <Property name="path">${sys:app.log.path}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console-Appender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                    [%d] [%-5level] [%t] %C - %m%n
+                </pattern>
+            </PatternLayout>
+        </Console>
+        <RollingFile name="Technical-Appender" fileName="${path}/@project.artifactId@.log" filePattern="${path}/@project.artifactId@-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>[%d] [%-5level] [%t] %c{1.} - %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
+        <RollingFile name="Application-Appender" fileName="${path}/@project.artifactId@-app.log" filePattern="${path}/@project.artifactId@-app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>[%d] [%-5level] [%t] %c{1.} - %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.bnpparibas">
+            <AppenderRef ref="Application-Appender" />
+        </Logger>
+        <Root>
+            <AppenderRef ref="Technical-Appender" />
+<!--             <AppenderRef ref="Console-Appender" /> -->
+        </Root>
+    </Loggers>
+</Configuration>

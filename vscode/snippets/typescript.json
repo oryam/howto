@@ -1,0 +1,157 @@
+{
+  /*
+	 // Place your snippets for TypeScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+  "ng2 App": {
+    "prefix": "ng2app",
+    "body": [
+      "import { bootstrap }    from '@angular/platform/browser';",
+      "import { AppComponent } from './app.component';",
+      "",
+      "bootstrap(AppComponent);",
+      ""
+    ],
+    "description": "Create bootstrap main import"
+  },
+  "ng2 Component": {
+    "prefix": "ng2component",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "  selector: '${1:my-tag}',",
+      "  inputs: [],",
+      "  pipes: [],",
+      "  directives: [],",
+      "  providers: [],",
+      "  template: `<h1>My component ${2:MyTag}</h1>`,",
+      "  styles: [",
+      "    `.$1 {}`",
+      "  ]",
+      "})",
+      "export class $2Component implements OnInit {",
+      "  constructor() {}",
+      "  ngOnInit() {}",
+      "}",
+      ""
+    ],
+    "description": "Create angular2 component"
+  },
+  "ng2 Component require": {
+    "prefix": "ng2componentRequire",
+    "body": [
+      "import { Component, OnInit } from '@angular/core';",
+      "",
+      "@Component({",
+      "  selector: '${1:my-tag}',",
+      "  inputs: [],",
+      "  pipes: [],",
+      "  directives: [],",
+      "  providers: [],",
+      "  template: require('./$1.component.html'),",
+      "  styles: [",
+      "    require('./$1.component.scss')",
+      "  ]",
+      "})",
+      "export class $2Component implements OnInit {",
+      "  constructor() {}",
+      "  ngOnInit() {}",
+      "}",
+      ""
+    ],
+    "description": "Create angular2 component with require"
+  },
+  "ng2 Pipe": {
+    "prefix": "ng2pipe",
+    "body": [
+      "import { Pipe, PipeTransform } from '@angular/core';",
+      "",
+      "@Pipe({ name: '${myPipe}' })",
+      "export class ${MyPiPeName}Pipe implements PipeTransform {",
+      "  transform(value: string) {",
+      "    return value;",
+      "  }",
+      "}",
+      ""
+    ],
+    "description": "Create angular2 pipe"
+  },
+  "ng2 Service": {
+    "prefix": "ng2service",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { Http, Response, Headers, RequestOptions } from '@angular/http';",
+      "import { Observable } from 'rxjs/Observable';",
+      "",
+      "@Injectable()",
+      "export class ${MyName}Service {",
+      "  private _${name}Url = 'service/$name';",
+      "",
+      "  constructor (private http: Http) {}",
+      "}",
+      ""
+    ],
+    "description": "Create angular2 pipe"
+  },
+  "ng2 Route config": {
+    "prefix": "ng2router",
+    "body": [
+      "import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';",
+      "",
+      "@RouteConfig([",
+      "  {",
+      "    path: '${1:/mypath}',",
+      "    name: '${2:MyName}',",
+      "    component: ${3:MyComponent},",
+      "    useAsDefault: ${4:false}",
+      "  }",
+      "])",
+      ""
+    ],
+    "description": "Create angular2 route config"
+  },
+  "ng2 Add route config element": {
+    "prefix": "ng2routeConfig",
+    "body": [
+      "{",
+      "  path: '${1:/mypath}',",
+      "  name: '${2:MyName}',",
+      "  component: ${3:MyComponent},",
+      "  useAsDefault: ${4:false}",
+      "}"
+    ],
+    "description": "Add angular2 route config element"
+  },
+  "ng2 Add route config element inline": {
+    "prefix": "ng2routeConfigInline",
+    "body": [
+      "{ path: '${1:/mypath}', name: '${2:MyName}', component: ${3:MyComponent}, useAsDefault: ${4:false} }"
+    ],
+    "description": "Add angular2 route config element inline"
+  },
+  "ng2 Add route link element": {
+    "prefix": "ng2routeLink",
+    "body": [
+      "<a [routerLink]=\"['${1:MyRouteName}']\">${1}</a>"
+    ],
+    "description": "Add angular2 route link element"
+  },
+  "ng2 import": {
+    "prefix": "ng2import",
+    "body": [
+      "import { ${2} } from './${1}';"
+    ],
+    "description": "Create angular2 import"
+  }
+}
